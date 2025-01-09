@@ -101,7 +101,7 @@ export default Vue.extend({
         "/api/public/v1/home/floordata"
       );
 
-      console.log(res);
+      // console.log(res);
 
       if (res.meta.status !== 200) {
         return uni.$showMsg();
