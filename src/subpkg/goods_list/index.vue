@@ -1,10 +1,9 @@
 <template>
-  <div class="cart">cart</div>
+  <div class="goods_list">goods_list</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
+<script>
+export default {
   components: {},
   data() {
     return {};
@@ -12,6 +11,7 @@ export default Vue.extend({
   computed: {},
   methods: {},
   watch: {},
+
   // 页面周期函数--监听页面加载
   onLoad() {},
   // 页面周期函数--监听页面初次渲染完成
@@ -30,11 +30,7 @@ export default Vue.extend({
   // onPageScroll(event) {},
   // 页面处理函数--用户点击右上角分享
   // onShareAppMessage(options) {},
-});
+};
 </script>
 
-<style lang="scss" scoped>
-.red {
-  color: red;
-}
-</style>
+<style lang="scss" scoped></style>

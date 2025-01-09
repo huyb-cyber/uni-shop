@@ -1,13 +1,13 @@
 <template>
-  <div class="cate">cate</div>
+  <view>cate</view>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 export default Vue.extend({
   components: {},
   data() {
-    return {}
+    return {};
   },
   computed: {},
   methods: {},
@@ -31,7 +31,11 @@ export default Vue.extend({
   // onPageScroll(event) {},
   // 页面处理函数--用户点击右上角分享
   // onShareAppMessage(options) {},
-}) 
+});
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.red {
+  color: red;
+}
+</style>

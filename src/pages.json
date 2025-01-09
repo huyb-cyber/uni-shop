@@ -25,6 +25,25 @@
 			}
 		}
 	],
+	"subPackages": [
+		{
+			"root": "subpkg",
+			"pages": [
+				{
+					"path": "goods_detail/goods_detail",
+					"style": {
+						"navigationBarTitleText": "goods_detail"
+					}
+				},
+				{
+					"path": "goods_list/index",
+					"style": {
+						"navigationBarTitleText": "goods_list"
+					}
+				}
+			]
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "lalal",
@@ -32,7 +51,6 @@
 		"backgroundColor": "#FFFFFF"
 	},
 	"tabBar": {
-
 		"selectedColor": "C00000",
 		"list": [
 			{
