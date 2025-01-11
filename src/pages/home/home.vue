@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view class="search-box">
+      <my-search @click="toSearch"> </my-search>
+    </view>
     <swiper indicator-dots autoplay circular :interval="3000" :duration="1000">
       <swiper-item v-for="(item, index) in swiperList" :key="index">
         <navigator
@@ -123,6 +126,11 @@ export default Vue.extend({
         });
       }
     },
+    toSearch() {
+      uni.navigateTo({
+        url: "/subpkg/search/search",
+      });
+    },
   },
   watch: {},
 
@@ -153,7 +161,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 swiper {
-  height: 300px;
+  height: 350rpx;
 
   .swiper-item,
   image {
@@ -164,7 +172,7 @@ swiper {
 .nav-list {
   display: flex;
   justify-content: space-around;
-  margin: 15px 0;
+  margin: 30rpx 0;
 
   .nav-img {
     width: 128rpx;
@@ -186,5 +194,11 @@ swiper {
 .floor-img-box {
   display: flex;
   padding-left: 10rpx;
+}
+
+.search-box {
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <view>
+    <my-search @click="toSearch"></my-search>
     <view class="scroll-view-container">
       <scroll-view
         scroll-y
@@ -78,6 +79,11 @@ export default Vue.extend({
         url: "/subpkg/goods_detail/goods_detail?cid=" + item.cat_id,
       });
     },
+    toSearch() {
+      uni.navigateTo({
+        url: "subpkg/search/search",
+      });
+    },
   },
   watch: {},
 
@@ -85,7 +91,7 @@ export default Vue.extend({
   onLoad() {
     const sysInfo = uni.getSystemInfoSync();
 
-    this.wh = sysInfo.windowHeight;
+    this.wh = sysInfo.windowHeight - 50;
     this.getCateList();
   },
   // 页面周期函数--监听页面初次渲染完成
