@@ -127,6 +127,8 @@ export default {
 </script>
 
 
+
+
 <style lang="scss" scoped>
 .search-box {
   position: sticky;
