@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import { uniSearchBar } from "@dcloudio/uni-ui";
+// import { uniSearchBar } from "@dcloudio/uni-ui";
 export default {
-  components: { uniSearchBar },
+  // components: { uniSearchBar },
   data() {
     return {
       timer: null,

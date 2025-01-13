@@ -17,7 +17,7 @@
           <text>收藏</text>
         </div>
       </div>
-      <div class="yf">快递：免运费</div>
+      <div class="yf">快递：免运费 -- {{ cart.length }}</div>
     </div>
 
     <rich-text :nodes="goods_info.goods_introduce"></rich-text>
@@ -37,11 +37,12 @@
 
 <script>
 import Vue from "vue";
-import { uniGoodsNav } from "@dcloudio/uni-ui";
+// import { uniGoodsNav } from "@dcloudio/uni-ui";
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default Vue.extend({
-  components: {
-    uniGoodsNav,
-  },
+  // components: {
+  //   uniGoodsNav,
+  // },
   data() {
     return {
       goods_info: {},
@@ -53,7 +54,7 @@ export default Vue.extend({
         {
           icon: "cart",
           text: "购物车",
-          info: 2,
+          info: 0,
         },
       ],
       buttonGroup: [
@@ -70,7 +71,13 @@ export default Vue.extend({
       ],
     };
   },
-  computed: {},
+  computed: {
+    ...mapState("m_cart", ["cart"]),
+    ...mapGetters("m_cart", ["total"]),
+    // cart() {
+    //   return this.$store.state.m_cart.cart;
+    // },
+  },
   methods: {
     async getGoodsDetail(goods_id) {
       const { data: res } = await uni.$http.get("/api/public/v1/goods/detail", {
@@ -101,12 +108,34 @@ export default Vue.extend({
         });
       }
     },
-    // buttonClick(e) {
-    //   console.log(e);
-    //   this.options[2].info++;
-    // },
+    ...mapMutations("m_cart", ["addToCart"]),
+    buttonClick(e) {
+      if (e.content.text === "加入购物车") {
+        const goods = {
+          goods_id: this.goods_info.goods_id,
+          goods_name: this.goods_info.goods_name,
+          goods_price: this.goods_info.goods_price,
+          goods_count: 1,
+          goods_small_logo: this.goods_info.goods_small_logo,
+          goods_state: true,
+        };
+
+        this.addToCart(goods);
+      }
+    },
   },
-  watch: {},
+  watch: {
+    total: {
+      handler(newVal) {
+        const findResult = this.options.find((x) => x.text === "购物车");
+
+        if (findResult) {
+          findResult.info = newVal;
+        }
+      },
+      immediate: true,
+    },
+  },
 
   // 页面周期函数--监听页面加载
   onLoad(options) {

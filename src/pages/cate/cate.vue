@@ -46,6 +46,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import badgeMix from "@/mixins/tabbar-badge.js";
+
 export default Vue.extend({
   components: {},
   data() {
@@ -81,11 +83,12 @@ export default Vue.extend({
     },
     toSearch() {
       uni.navigateTo({
-        url: "subpkg/search/search",
+        url: "/subpkg/search/search",
       });
     },
   },
   watch: {},
+  mixins: [badgeMix],
 
   // 页面周期函数--监听页面加载
   onLoad() {

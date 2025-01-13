@@ -12,8 +12,10 @@
 </template>
 
 <script>
+// import { uniIcons } from "@dcloudio/uni-ui";
 export default {
   name: "my-search",
+  // components: { uniIcons },
   props: {},
   data() {
     return {};
