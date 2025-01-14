@@ -44,7 +44,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import badgeMix from "@/mixins/tabbar-badge.js";
 
@@ -78,7 +78,7 @@ export default Vue.extend({
     },
     goToGoodsList(item) {
       uni.navigateTo({
-        url: "/subpkg/goods_detail/goods_detail?cid=" + item.cat_id,
+        url: "/subpkg/goods_list/index?cid=" + item.cat_id,
       });
     },
     toSearch() {

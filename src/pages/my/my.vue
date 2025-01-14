@@ -1,17 +1,22 @@
 <template>
-  <div class="my">my</div>
+  <div class="my-container">
+    <my-login v-if="!token"></my-login>
+    <my-userinfo v-else></my-userinfo>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import badgeMix from "@/mixins/tabbar-badge.js";
-
+import { mapState } from "vuex";
 export default Vue.extend({
   components: {},
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapState("m_user", ["token"]),
+  },
   methods: {},
   watch: {},
   mixins: [badgeMix],
@@ -38,7 +43,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss"scoped>
-.red {
-  color: red;
+.my-container {
+  height: 100%;
 }
 </style>
