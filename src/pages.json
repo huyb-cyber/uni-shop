@@ -60,6 +60,13 @@
 			]
 		}
 	],
+	"preloadRule": {
+		"pages/home/home": {
+			"packages": [
+				"subpkg"
+			]
+		}
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "lalal",
